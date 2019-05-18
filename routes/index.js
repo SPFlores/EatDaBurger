@@ -1,6 +1,3 @@
-const db = require('../config')
+const burgerRoutes = require('./burgerRoutes.js')
 
-module.exports = app => {
-  // your routes here...
-  app.put('/')
-}
+module.exports = burgerRoutes
