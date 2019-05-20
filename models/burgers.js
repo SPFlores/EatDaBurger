@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const connection = require('../config')
+const connection = require('../config/connection.js')
 
 class Burger extends Sequelize.Model { }
 Burger.init({

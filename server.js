@@ -1,16 +1,14 @@
 const express = require('express')
 const { join } = require('path')
 
-const server = express()
+const app = express()
 
-const routes = require('./routes')
+app.use(express.static(join(__dirname, 'public')))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.engine('.hbs', require('express-handlebars')({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', '.hbs')
 
-server.use(express.static(join(__dirname, 'public')))
-server.use(express.urlencoded({ extended: true }))
-server.use(express.json())
-server.engine('.hbs', require('express-handlebars')({ defaultLayout: 'main', extname: '.hbs' }))
-server.set('view engine', '.hbs')
+require('./routes/index.js')(app)
 
-server.use(routes)
-
-server.listen(3000)
+app.listen(3000)

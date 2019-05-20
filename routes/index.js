@@ -1,3 +1,3 @@
-const burgerRoutes = require('./burgerRoutes.js')
-
-module.exports = burgerRoutes
+module.exports = app => {
+  require('./burgerRoutes.js')(app)
+}
