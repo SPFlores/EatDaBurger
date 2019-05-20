@@ -1,9 +1,3 @@
-const { createConnection } = require('mysql2')
+const Sequelize = require('sequelize')
 
-module.exports = createConnection({
-  host: 'localhost',
-  port: '3306',
-  user: 'root',
-  password: 'LMUlions141!',
-  database: 'burgers_db'
-})
+module.exports = new Sequelize('mysql://root:LMUlions141!@localhost:3306/burgers_db')

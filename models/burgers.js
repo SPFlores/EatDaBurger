@@ -1,24 +1,18 @@
-const orm = require('../config/orm')
+const Sequelize = require('sequelize')
+const connection = require('../config')
 
-const burger = {
-  all: function (cb) {
-    orm.all('burgers', function (res) {
-      cb(res)
-    })
+class Burger extends Sequelize.Model { }
+Burger.init({
+  burger_name: {
+    type: Sequelize.STRING,
+    notNull: true,
+    len: [1, 50]
   },
-  create: function (name, cb) {
-    orm.create('burgers', [
-      'burger_name', 'devoured'
-    ], [
-      name, false
-    ], cb)
-  },
-  update: function (id, cb) {
-    var condition = 'id=' + id
-    orm.update('burgers', {
-      devoured: true
-    }, condition, cb)
+  devoured: {
+    type: Sequelize.BOOLEAN,
+    notNull: true,
+    defaultValue: false
   }
-}
+}, { sequelize: connection, modelName: 'burger' })
 
-module.exports = burger
+module.exports = Burger
