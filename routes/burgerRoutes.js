@@ -25,9 +25,10 @@ module.exports = app => {
       .catch(e => console.log(e))
   })
 
-  app.delete('/burgers/:id', (req, res) => {
-    Burger.destroy({ where: { id: req.params.id } })
-      .then(_ => res.sendStatus(200))
-      .catch(e => console.log(e))
-  })
+  // not needed, but for reference moving forward or for future implementations
+  // app.delete('/burgers/:id', (req, res) => {
+  //   Burger.destroy({ where: { id: req.params.id } })
+  //     .then(_ => res.sendStatus(200))
+  //     .catch(e => console.log(e))
+  // })
 }
