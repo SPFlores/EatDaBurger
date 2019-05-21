@@ -1,1 +1,7 @@
-<h3>put some burgers here</h3>
+{{#each burger}}
+<div>
+  <h1>{{burger_name}}</h1>
+  <button class="dltBtn" data-uid='{{id}}'>Eat this burger!</button>
+</div>
+<hr>
+{{/each}}

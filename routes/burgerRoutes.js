@@ -1,15 +1,18 @@
-const { Burger } = require('../models/burgers.js')
+const { Burger } = require('../models')
 
 module.exports = app => {
   app.get('/', (req, res) => {
     res.render('index')
   })
 
-  // app.get('/burgers', (req, res) => {
-  //   Burger.findAll()
-  //     .then(burgers => res.json(burgers))
-  //     .catch(e => console.log(e))
-  // })
+  app.get('/burgers', (req, res) => {
+    Burger.findAll()
+      .then(burgers => {
+        let burgersJSON = res.json(burgers)
+        res.render('burgers', { burgersJSON })
+      })
+      .catch(e => console.log(e))
+  })
 
   // app.post('/burgers', (req, res) => {
   //   Burger.create(req.body)
