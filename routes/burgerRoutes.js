@@ -9,6 +9,7 @@ module.exports = app => {
     Burger.findAll()
       .then(burgers => {
         res.render('burgers', { burgers })
+        console.log('got here')
       })
       .catch(e => console.log(e))
   })

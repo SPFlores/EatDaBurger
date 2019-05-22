@@ -50,12 +50,19 @@ document.addEventListener('click', e => {
         document.querySelector('#burger_name').value = ''
       })
       .catch(e => console.log(e))
-  } else if (e.target.id === 'getBurgers') {
-    fetch('/burgers')
-      .then()
-      .catch(e => console.log(e))
-
-  }
+  } 
+  // else if (e.target.id === 'getBurgers') {
+  //   e.preventDefault()
+  //   fetch('/burgers')
+  //     // .then(_ =>
+  //     //   console.log('this doesnt work')
+  //     //     //  {
+  //     //   // console.log(burger)
+  //     //   // location.reload()
+  //     // // }
+  //     // )
+  //     .catch(e => console.log(e))
+  // }
 })
 
 // getBurgers()
