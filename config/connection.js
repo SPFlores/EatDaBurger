@@ -1,3 +1,10 @@
 const Sequelize = require('sequelize')
+let sequelize
 
-module.exports = new Sequelize('mysql://root:LMUlions141!@localhost:3306/burgers_db')
+if (process.env.NODE_ENV === ' production') {
+  sequelize = new Sequelize(process.env.JAWSDB_URL)
+} else {
+  sequelize = new Sequelize('mysql://root:LMUlions141!@localhost:3306/burgers_db')
+}
+
+module.exports = sequelize

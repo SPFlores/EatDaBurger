@@ -11,5 +11,5 @@ app.set('view engine', '.hbs')
 require('./routes')(app)
 
 require('./config/connection.js').sync()
-  .then(_ => app.listen(3000))
+  .then(_ => app.listen(process.env.PORT || 3000))
   .catch(e => console.log(e))
