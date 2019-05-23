@@ -1,1 +1,10 @@
-<h1>eaten</h1>
+{{#each devoured}}
+<div class="row {{devoured}}">
+  <div class="col s6 m6 l6 xl6">
+    <h1>{{burger_name}}</h1>
+    <h4>{{devoured}}</h4>
+    <button class="eatBtn" data-id='{{id}}'>Eat this burger!</button>
+  </div>
+  <hr>
+</div>
+{{/each}}

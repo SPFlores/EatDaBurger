@@ -8,8 +8,17 @@ module.exports = app => {
   app.get('/burgers', (req, res) => {
     Burger.findAll()
       .then(burgers => {
-        res.render('burgers', { burgers })
-        console.log('got here')
+        let devoured = []
+        let whole = []
+        burgers.forEach(burger => {
+          if (burger.devoured) {
+            devoured.push(burger)
+          } else if (!burger.devoured) {
+            whole.push(burger)
+          }
+        })
+        // res.render('eaten', { devoured })
+        res.render('burgers', { whole, devoured })
       })
       .catch(e => console.log(e))
   })
